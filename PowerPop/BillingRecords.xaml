@@ -1,0 +1,48 @@
+﻿<Page x:Class="PowerPop.BillingRecords"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:PowerPop"
+      mc:Ignorable="d"
+      Title="BillingRecords">
+
+    <Page.Resources>
+        <Style x:Key="DataGridColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E3A72F"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Poppins"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="15"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Height="420" Width="700" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Billing Records" VerticalAlignment="Top" FontFamily="Poppins" FontSize="25" FontWeight="Bold" Foreground="#E3A72F"/>
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="10,5,10,88" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="House Number" Binding="{Binding HouseNumber}" />
+                <DataGridTextColumn Header="Billing Period" Binding="{Binding BillingPeriod}" />
+                <DataGridTextColumn Header="Meralco Bill" Binding="{Binding MeralcoBill}" />
+                <DataGridTextColumn Header="Due Date" Binding="{Binding DueDate}" />
+                <DataGridTextColumn Header="kWh per Peso" Binding="{Binding KWhPerPeso}" />
+                <DataGridTextColumn Header="Bill per House No." Binding="{Binding BillPerHouseNo}" />
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+        <Button x:Name="print_btn" Content="Print" HorizontalAlignment="Left" Margin="485,314,0,0" VerticalAlignment="Top" FontFamily="Poppins" FontSize="17" FontWeight="Bold" Foreground="#E3A72F" Background="White" Width="74" BorderThickness="1" BorderBrush="#E3A72F" Click="printbtn_Click" Grid.Row="1"/>
+        <Button x:Name="save_btn" Content="Save" HorizontalAlignment="Left" Margin="615,314,0,0" VerticalAlignment="Top" FontFamily="Poppins" FontSize="17" FontWeight="Bold" Foreground="#E3A72F" Background="White" Width="75" BorderThickness="1" BorderBrush="#E3A72F" Click="savebtn_Click" Grid.Row="1"/>
+        <ComboBox x:Name="statusComboBox" HorizontalAlignment="Center" Margin="0,315,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Pending"/>
+            <ComboBoxItem Content="Paid"/>
+        </ComboBox>
+    </Grid>
+</Page>

@@ -1,0 +1,44 @@
+﻿<Page x:Class="PowerPop.CalculateSubmeter"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PowerPop"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CalculateSubmeter">
+
+
+    <Grid Background="#FFFAE6" Grid.Column="0" Margin="10,10,0,10">
+        <TextBlock x:Name="Calculate" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Calculate Submeter" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="25" FontWeight="Bold" Foreground="#E3A72F"/>
+        <TextBlock x:Name="SidePanel1" HorizontalAlignment="Left" Margin="42,90,0,0" TextWrapping="Wrap" Text="Billing Period" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" Foreground="#E3A72F" FontWeight="Bold"/>
+        <TextBox x:Name="billing_period" HorizontalAlignment="Left" Height="22" Margin="20,123,0,0" Text="  " FontFamily="Poppins" FontSize="14" Foreground="gray" VerticalAlignment="Top" Width="160"/>
+        <TextBlock x:Name="SidePanel2" HorizontalAlignment="Left" Margin="58,154,0,0" TextWrapping="Wrap" Text="Due Date" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" Foreground="#E3A72F" FontWeight="Bold"/>
+        <TextBox x:Name="renter_billing_period" HorizontalAlignment="Left" Height="23" Margin="20,179,0,0" Text="  " FontFamily="Poppins" FontSize="14" Foreground="gray" VerticalAlignment="Top" Width="160"/>
+        <TextBlock x:Name="SidePanel3" HorizontalAlignment="Left" Margin="48,220,0,0" TextWrapping="Wrap" Text="Meralco Bill" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" Foreground="#E3A72F" FontWeight="Bold"/>
+        <TextBox x:Name="meralco_bill" HorizontalAlignment="Left" Height="23" Margin="20,252,0,0"  FontFamily="Poppins" FontSize="14" Foreground="gray" VerticalAlignment="Top" Width="160"/>
+        <TextBlock x:Name="SidePanel4" HorizontalAlignment="Left" Margin="44,287,0,0" TextWrapping="Wrap" Text="kWh per Peso" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" Foreground="#E3A72F" FontWeight="Bold"/>
+        <TextBox x:Name="kwh_peso" HorizontalAlignment="Left" Height="23" Margin="20,328,0,0" FontFamily="Poppins" FontSize="14" Foreground="gray" VerticalAlignment="Top" Width="160"/>
+        <TextBlock x:Name="HouseNum" HorizontalAlignment="Left" Margin="234,90,0,0" TextWrapping="Wrap" Text="House Number" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" FontWeight="Bold" Foreground="#E3A72F"/>
+        <TextBlock x:Name="kWhPerHouse" HorizontalAlignment="Left" Margin="394,90,0,0" TextWrapping="Wrap" Text="kWh per House No." VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" FontWeight="Bold" Foreground="#E3A72F"/>
+        <TextBlock x:Name="BillPerHouse" HorizontalAlignment="Left" Margin="588,90,0,0" TextWrapping="Wrap" Text="Bill per House No." VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" FontWeight="Bold" Foreground="#E3A72F"/>
+        <TextBox x:Name="kwh_hnumber1" HorizontalAlignment="Left" Height="23" Margin="394,126,0,0" TextWrapping="Wrap" Text="" FontFamily="Poppins" FontSize="14" Foreground="gray" VerticalAlignment="Top" Width="156"/>
+        <TextBox x:Name="kwh_hnumber2" HorizontalAlignment="Left" Height="24" Margin="394,167,0,0" TextWrapping="Wrap" Text="" FontFamily="Poppins" FontSize="14" Foreground="gray" VerticalAlignment="Top" Width="156"/>
+        <TextBox x:Name="kwh_hnumber3" HorizontalAlignment="Left" Height="24" Margin="394,206,0,0" TextWrapping="Wrap" Text="" FontFamily="Poppins" FontSize="14" Foreground="gray" VerticalAlignment="Top" Width="156"/>
+        <TextBox x:Name="kwh_hnumber4" HorizontalAlignment="Left" Height="23" Margin="394,245,0,0" TextWrapping="Wrap" Text="" FontFamily="Poppins" FontSize="14" Foreground="gray" VerticalAlignment="Top" Width="156"/>
+        <TextBox x:Name="kwh_hnumber5" HorizontalAlignment="Left" Height="23" Margin="394,284,0,0" TextWrapping="Wrap" Text="" FontFamily="Poppins" FontSize="14" Foreground="gray" VerticalAlignment="Top" Width="156"/>
+        <Button x:Name="savebtn" Content="Save" HorizontalAlignment="Left" Margin="630,332,0,0" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" FontWeight="Bold" Foreground="#E3A72F" Background="White" BorderThickness="1" BorderBrush="#E3A72F" Width="96" Click="save_btn"/>
+        <Button x:Name="calculatebtn" Content="Calculate" HorizontalAlignment="Left" Margin="502,332,0,0" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" FontWeight="Bold" Foreground="#E3A72F" Background="White" BorderThickness="1" BorderBrush="#E3A72F" Width="110" Click="calculate_btn"/>
+        <TextBlock x:Name="bill_hnumber1" HorizontalAlignment="Left" Height="23" Margin="582,127,0,0" TextWrapping="Wrap" Text="" FontFamily="Poppins" FontSize="14" Foreground="Gray" VerticalAlignment="Top" Width="156"/>
+        <TextBlock x:Name="bill_hnumber2" HorizontalAlignment="Left" Height="23" Margin="582,170,0,0" TextWrapping="Wrap" Text="" FontFamily="Poppins" FontSize="14" Foreground="Gray" VerticalAlignment="Top" Width="156"/>
+        <TextBlock x:Name="bill_hnumber3" HorizontalAlignment="Left" Height="23" Margin="582,206,0,0" TextWrapping="Wrap" Text="" FontFamily="Poppins" FontSize="14" Foreground="Gray" VerticalAlignment="Top" Width="156"/>
+        <TextBlock x:Name="bill_hnumber4" HorizontalAlignment="Left" Height="23" Margin="582,245,0,0" TextWrapping="Wrap" Text="" FontFamily="Poppins" FontSize="14" Foreground="Gray" VerticalAlignment="Top" Width="156"/>
+        <TextBlock x:Name="bill_hnumber5" HorizontalAlignment="Left" Height="23" Margin="582,284,0,0" TextWrapping="Wrap" Text="" FontFamily="Poppins" FontSize="14" Foreground="Gray" VerticalAlignment="Top" Width="156"/>
+        <TextBlock x:Name="house_number1" HorizontalAlignment="Left" Margin="274,129,0,0" TextWrapping="Wrap" Text="A101" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" FontWeight="Bold" Foreground="#E3A72F"/>
+        <TextBlock x:Name="house_number2" HorizontalAlignment="Left" Margin="274,169,0,0" TextWrapping="Wrap" Text="B202" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" FontWeight="Bold" Foreground="#E3A72F"/>
+        <TextBlock x:Name="house_number3" HorizontalAlignment="Left" Margin="274,208,0,0" TextWrapping="Wrap" Text="C303" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" FontWeight="Bold" Foreground="#E3A72F"/>
+        <TextBlock x:Name="house_number4" HorizontalAlignment="Left" Margin="274,246,0,0" TextWrapping="Wrap" Text="D404" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" FontWeight="Bold" Foreground="#E3A72F"/>
+        <TextBlock x:Name="house_number5" HorizontalAlignment="Left" Margin="274,285,0,0" TextWrapping="Wrap" Text="E505" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" FontWeight="Bold" Foreground="#E3A72F"/>
+    </Grid>
+
+</Page>
