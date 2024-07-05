@@ -5,41 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PowerPop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800" ResizeMode="NoResize">
-
-    <Window.Resources>
-        <!-- Style for DataGridColumnHeader -->
-        <Style x:Key="DataGridColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#E3A72F"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="FontFamily" Value="Poppins"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Padding" Value="15"/>
-        </Style>
-
-        <!-- Style for DataGrid -->
-        <Style TargetType="{x:Type DataGrid}">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderBrush" Value="#FFDE32"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="RowHeaderWidth" Value="0"/>
-            <Setter Property="HeadersVisibility" Value="Column"/>
-            <Setter Property="ColumnHeaderStyle" Value="{StaticResource DataGridColumnHeaderStyle}"/>
-        </Style>
-    </Window.Resources>
+        Title="MainWindow" FontFamily="Poppins" Height="450" Width="800" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="/powerpop_bg.png"/>
+    </Window.Background>
 
     <Grid>
-        <!-- Upper Panel -->
-        <Rectangle HorizontalAlignment="Center" Height="44" Stroke="#FFFAE6" Fill="#FFF9F1D2" VerticalAlignment="Top" Width="760" Margin="0,9,0,0"/>
-        <Image Margin="35,17,0,0" Source="Images/powerpop_logo.png" VerticalAlignment="Top" Height="28" HorizontalAlignment="Left" RenderTransformOrigin="1.428,0.45" Width="31"/>
-        <TextBlock HorizontalAlignment="Left" Margin="70,20,0,0" TextWrapping="Wrap" Text="Power" VerticalAlignment="Top" FontFamily="Poppins" FontSize="20" FontWeight="Bold" Foreground="#E3A72F"/>
-        <TextBlock HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="Pop" VerticalAlignment="Top" FontFamily="Poppins" FontSize="20" FontWeight="Bold" Foreground="#FFDE32" RenderTransformOrigin="-0.283,0.328"/>
-        <Button x:Name="calculate_window" Content="Calculate Submeter" HorizontalAlignment="Left" Margin="432,22,0,0" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" FontWeight="Bold" Foreground="#E3A72F" Background="#FFFAE6" Width="173" BorderThickness="0" BorderBrush="Transparent" Click="calculatewindowbtn"/>
-        <Button x:Name="billingrecord_window" Content="Billing Records" HorizontalAlignment="Left" Margin="621,21,0,0" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="17" FontWeight="Bold" Foreground="#FFFAE6" Background="#E3A72F" Width="143" BorderThickness="0" BorderBrush="Transparent" Click="billingrecordbtn"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
         <!-- Main Content Frame -->
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,53,0,0"/>
+
+        <Grid Margin="10">
+
+            <!-- Upper Panel -->
+            <Rectangle HorizontalAlignment="Stretch" Height="49" VerticalAlignment="Top" Fill="#FFFAE6"/>
+            <Image Margin="25,10,0,0" Source="Images/powerpop_logo.png" VerticalAlignment="Top" Height="28" HorizontalAlignment="Left"/>
+            <TextBlock HorizontalAlignment="Left" Margin="60,15,0,0" TextWrapping="Wrap" Text="Power" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="20" FontWeight="Bold" Foreground="#E3A72F"/>
+            <TextBlock HorizontalAlignment="Left" Margin="118,15,0,0" TextWrapping="Wrap" Text="Pop" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="20" FontWeight="Bold" Foreground="#FFDE32"/>
+            <TextBlock HorizontalAlignment="Left" Margin="530,15,0,0" TextWrapping="Wrap" Text="System" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="20" FontWeight="Bold" Foreground="#E3A72F"/>
+            <TextBlock HorizontalAlignment="Left" Margin="599,15,0,0" TextWrapping="Wrap" Text="Administration" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="20" FontWeight="Bold" Foreground="#FFDE32"/>
+
+            <!-- Main Content -->
+            <TextBlock HorizontalAlignment="Left" Margin="104,113,0,0" TextWrapping="Wrap" Text="Power" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="45" FontWeight="Bold" Foreground="#E3A72F" Width="138">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#724C00" Direction="0" ShadowDepth="2" Opacity="1"/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="235,113,0,0" TextWrapping="Wrap" Text="Pop" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="45" FontWeight="Bold" Foreground="#FFDE32" Width="85">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#724C00" Direction="0" ShadowDepth="2" Opacity="1"/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="317,113,0,0" TextWrapping="Wrap" Text=": Submeter Billing" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="45" FontWeight="Bold" Foreground="white" Width="384">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#724C00" Direction="0" ShadowDepth="2" Opacity="1"/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center" Margin="0,167,0,0" TextWrapping="Wrap" Text="Management System" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="45" FontWeight="Bold" Foreground="white" Width="448">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#724C00" Direction="0" ShadowDepth="2" Opacity="1"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <TextBox x:Name="code" HorizontalAlignment="Left" Height="23" Margin="239,258,0,0" Text="" FontFamily="Poppins" FontSize="14" Foreground="gray" Background="#FFFAE6"  VerticalAlignment="Top" Width="210"/>
+            <Button x:Name="enterbtn" Content="Enter" HorizontalAlignment="Left" Margin="449,258,0,0" VerticalAlignment="Top" FontFamily="Poppins Bold" FontSize="14" FontWeight="Medium" Foreground="White" Background="#E3A72F" Width="86" Height="23" BorderThickness="0" BorderBrush="Transparent" Click="enter_btn"/>
+            <TextBlock HorizontalAlignment="Left" Margin="170,329,0,0" TextWrapping="Wrap" Text="Where accuracy meets efficiency, that’s where PowerPop shines. " VerticalAlignment="Top" FontFamily="Montserrat Italic" FontSize="15" FontWeight="Medium" Foreground="white" Width="490" FontStyle="Italic">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#724C00" Direction="0" ShadowDepth="2" Opacity="1"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+        </Grid>
     </Grid>
 </Window>

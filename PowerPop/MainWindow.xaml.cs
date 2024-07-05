@@ -1,19 +1,8 @@
-﻿using System.Text;
+﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PowerPop
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -21,14 +10,24 @@ namespace PowerPop
             InitializeComponent();
         }
 
-        private void calculatewindowbtn(object sender, RoutedEventArgs e)
+        private void enter_btn(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new CalculateSubmeter());
-        }
+            string enteredCode = code.Text.Trim();
+            string correctCode = "12345"; // Replace with your actual correct code
 
-        private void billingrecordbtn(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new BillingRecords());
+            if (enteredCode == correctCode)
+            {
+                // Successful login, navigate to MainFrame1.xaml
+                MainFrame1 mainFrame = new MainFrame1();
+                mainFrame.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Incorrect code. Please try again.", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                code.Clear();
+                code.Focus();
+            }
         }
     }
 }
