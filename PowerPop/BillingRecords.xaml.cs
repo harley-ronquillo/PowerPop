@@ -118,8 +118,6 @@ namespace PowerPop
             y += lineHeight;
             graphics.DrawString("Billing Period: " + selectedRecord.BillingPeriod, bodyFont, Brushes.Black, x, y);
             y += lineHeight;
-            graphics.DrawString("Meralco Bill: " + selectedRecord.MeralcoBill.ToString("C"), bodyFont, Brushes.Black, x, y);
-            y += lineHeight;
             graphics.DrawString("Due Date: " + selectedRecord.DueDate, bodyFont, Brushes.Black, x, y);
             y += lineHeight;
             graphics.DrawString("Meralco Bill: ₱" + selectedRecord.MeralcoBill.ToString("#,##0.00"), bodyFont, Brushes.Black, x, y);
