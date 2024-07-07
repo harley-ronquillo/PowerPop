@@ -25,7 +25,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Billing Records" VerticalAlignment="Top" FontFamily="Poppins" FontSize="25" FontWeight="Bold" Foreground="#E3A72F"/>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="10,5,10,88" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Grid.Row="1">
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="10,11,10,82" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="House Number" Binding="{Binding HouseNumber}" />
                 <DataGridTextColumn Header="Billing Period" Binding="{Binding BillingPeriod}" />
@@ -38,11 +38,12 @@
 
 
         </DataGrid>
-        <Button x:Name="print_btn" Content="Print" HorizontalAlignment="Left" Margin="485,314,0,0" VerticalAlignment="Top" FontFamily="Poppins" FontSize="17" FontWeight="Bold" Foreground="#E3A72F" Background="White" Width="74" BorderThickness="1" BorderBrush="#E3A72F" Click="printbtn_Click" Grid.Row="1"/>
-        <Button x:Name="save_btn" Content="Save" HorizontalAlignment="Left" Margin="615,314,0,0" VerticalAlignment="Top" FontFamily="Poppins" FontSize="17" FontWeight="Bold" Foreground="#E3A72F" Background="White" Width="75" BorderThickness="1" BorderBrush="#E3A72F" Click="savebtn_Click" Grid.Row="1"/>
-        <ComboBox x:Name="statusComboBox" HorizontalAlignment="Center" Margin="0,315,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120">
+        <Button x:Name="print_btn" Content="Print" HorizontalAlignment="Left" Margin="453,314,0,0" VerticalAlignment="Top" FontFamily="Poppins" FontSize="17" FontWeight="Bold" Foreground="#E3A72F" Background="White" Width="88" BorderThickness="1" BorderBrush="#E3A72F" Click="printbtn_Click" Grid.Row="1" Height="30"/>
+        <Button x:Name="save_btn" Content="Save" HorizontalAlignment="Left" Margin="560,314,0,0" VerticalAlignment="Top" FontFamily="Poppins" FontSize="17" FontWeight="Bold" Foreground="#E3A72F" Background="White" Width="89" BorderThickness="1" BorderBrush="#E3A72F" Click="savebtn_Click" Grid.Row="1" Height="30"/>
+        <ComboBox x:Name="statusComboBox" HorizontalAlignment="Left" Margin="164,318,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Pending"/>
             <ComboBoxItem Content="Paid"/>
         </ComboBox>
+        <Label Content="Select Status" HorizontalAlignment="Left" Margin="45,316,0,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Poppins" FontSize="17" FontWeight="Bold" Foreground="#E3A72F"/>
     </Grid>
 </Page>

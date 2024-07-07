@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Globalization; // For DateTime parsing
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data; // For ICollectionView
 using System.Windows.Forms; // Add this if you're using MessageBox from System.Windows.Forms
 
 namespace PowerPop
@@ -31,7 +34,7 @@ namespace PowerPop
             public string HouseNumber { get; set; }
             public string BillingPeriod { get; set; }
             public decimal MeralcoBill { get; set; }
-            public string DueDate { get; set; }
+            public DateTime DueDate { get; set; } // Changed to DateTime
             public decimal KWhPerPeso { get; set; }
             public decimal BillPerHouseNo { get; set; }
             public string Status { get; set; }
@@ -118,14 +121,13 @@ namespace PowerPop
             y += lineHeight;
             graphics.DrawString("Billing Period: " + selectedRecord.BillingPeriod, bodyFont, Brushes.Black, x, y);
             y += lineHeight;
-            graphics.DrawString("Due Date: " + selectedRecord.DueDate, bodyFont, Brushes.Black, x, y);
+            graphics.DrawString("Due Date: " + selectedRecord.DueDate.ToString("yyyy-MM-dd"), bodyFont, Brushes.Black, x, y); // Format DueDate
             y += lineHeight;
             graphics.DrawString("Meralco Bill: ₱" + selectedRecord.MeralcoBill.ToString("#,##0.00"), bodyFont, Brushes.Black, x, y);
             y += lineHeight;
             graphics.DrawString("Bill Per House No.: ₱" + selectedRecord.BillPerHouseNo.ToString("#,##0.00"), bodyFont, Brushes.Black, x, y);
             y += lineHeight;
         }
-
 
         private void LoadBillingRecords()
         {
@@ -159,18 +161,48 @@ namespace PowerPop
                         HouseNumber = row["house_number"].ToString(),
                         BillingPeriod = row["billing_period"].ToString(),
                         MeralcoBill = Convert.ToDecimal(row["meralco_bill"]),
-                        DueDate = row["due_date"].ToString(),
+                        DueDate = DateTime.Parse(row["due_date"].ToString(), CultureInfo.InvariantCulture), // Parse DateTime
                         KWhPerPeso = Convert.ToDecimal(row["kwh_per_peso"]),
                         BillPerHouseNo = Convert.ToDecimal(row["bill_per_house_no"]),
                         Status = row["status"].ToString()
                     });
                 }
 
+                // Bind the sorted view to DataGrid
                 dataGrid.ItemsSource = billingRecords;
             }
             catch (Exception ex)
             {
                 System.Windows.MessageBox.Show($"Error loading billing records: {ex.Message}");
+            }
+        }
+
+        private void DataGrid_Sorting(object sender, DataGridSortingEventArgs e)
+        {
+            // Implement custom sorting for DueDate column
+            if (e.Column.Header.ToString() == "Due Date")
+            {
+                e.Handled = true;
+                ListSortDirection direction = (e.Column.SortDirection != ListSortDirection.Ascending) ?
+                    ListSortDirection.Ascending : ListSortDirection.Descending;
+                e.Column.SortDirection = direction;
+
+                // Cast ItemsSource to ICollectionView to use SortDescriptions
+                ICollectionView view = CollectionViewSource.GetDefaultView(dataGrid.ItemsSource);
+                view.SortDescriptions.Clear();
+                view.SortDescriptions.Add(new SortDescription("DueDate", direction));
+            }
+        }
+
+        private void DataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            // Set custom sorting event handler for DataGrid
+            if (e.Column.Header.ToString() == "DueDate")
+            {
+                DataGridColumn column = e.Column;
+                column.SortMemberPath = "DueDate";
+                column.CanUserSort = true;
+                column.SortDirection = null;
             }
         }
     }

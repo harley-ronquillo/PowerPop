@@ -41,5 +41,6 @@
 
         <!-- Main Content Frame -->
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,53,0,0"/>
+        <Image Margin="362,44,-62,-60" Source="/Images/mframe.png" Stretch="Fill"/>
     </Grid>
 </Window>
