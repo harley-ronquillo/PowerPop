@@ -12,7 +12,7 @@ namespace PowerPop
 
         public DbConn()
         {
-            connString = "Server=localhost;Port=3306;Database=powerpopdb;Uid=root;Pwd=;";
+            connString = "Server=localhost;Port=3306;Database=powerpopdb;Uid=root;Pwd=root;";
             mySqlConnection = new MySqlConnection(connString);
         }
 

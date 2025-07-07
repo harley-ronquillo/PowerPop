@@ -13,11 +13,10 @@ namespace PowerPop
         private void enter_btn(object sender, RoutedEventArgs e)
         {
             string enteredCode = code.Text.Trim();
-            string correctCode = "12345"; // Replace with your actual correct code
+            string correctCode = "12345"; 
 
             if (enteredCode == correctCode)
             {
-                // Successful login, navigate to MainFrame1.xaml
                 MainFrame1 mainFrame = new MainFrame1();
                 mainFrame.Show();
                 this.Close();
